@@ -1,14 +1,6 @@
-# Meshtastic-device
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/meshtastic/Meshtastic-device)
-[![Continuous Integration](https://github.com/meshtastic/Meshtastic-device/actions/workflows/main.yml/badge.svg)](https://github.com/meshtastic/Meshtastic-device/actions/workflows/main.yml)
-![GitHub all releases](https://img.shields.io/github/downloads/meshtastic/meshtastic-device/total)
+# Textnachrichten über LORA-Funkmodule auf 433MHz austauschen auf Basis von Meshtastic
+Device Firmware Off-Grid-Messaging mit kostengünstiger Hardware, um Ihr persönliches Mesh zu erstellen. LORA-Funkmodule leiten Nachrichten an den nächsten weiter, um alle Knoten im Netzwerk zu erreichen. Kommunizieren Sie über Kilometer zwischen Knoten. Mit über MeshCom im HAMNET verbundene Gateway-Knoten wird es ermöglicht Mesh-Bereiche, welche keine direkte Funkverbindung haben zu verbinden. Siehe MeshCom aus dem HAMNET Dashboard http://meshcom.ampr.at/ oder aus dem INTERNET https://srv08.oevsv.at/mqtt
 
-## This repository contains the device firmware used in the [Meshtastic](https://meshtastic.org) project.
+# Meshtastic Source-Code angepasst für MeshCom Projekt:
 
-Update Instructions
-
-[For ESP32 devices click here](https://meshtastic.org/docs/getting-started/flashing-esp32)
-
-[For nRF52 devices click here](https://meshtastic.org/docs/getting-started/flashing-nrf52)
-
-For developer information and specific building instructions, please see the [developer doccumentation](https://meshtastic.org/docs/developers)
+Liste der Modificationen folgt in Kürze
