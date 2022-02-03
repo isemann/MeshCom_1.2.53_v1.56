@@ -1,4 +1,4 @@
-# Meshcom 
+# MeshCom 
 is a tactical mesh-network for messaging and telemetry data using LoRa transceiver modules. There is no hierarchy in a mesh network topology, every node can relay a packet and cooperate with other nodes to efficiently route a packet to the gateways. Mesh networks dynamically connect end-nodes together and self-configure the routing paths.
 
 <p align="center"><img src="images/meshcom_1.gif" alt="Meshcom Network"></p>
