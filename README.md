@@ -18,6 +18,6 @@ Following are the characteristics of the MeshCom network:
   <li>The network is suitable for messaging, telentric data and emergency communication</li>
 </ul>
 
-# Meshtastic Source-Code modified for the MeshCom project:
+# Meshtastic Source-Code modified for MeshCom:
 
 
