@@ -47,6 +47,6 @@ filename: scr/mqtt/MQTT.cpp, line 189
 filename: src/mesh/http/WiFiClient.cpp, line 26-27
 * GPS position broadcast period increased to 15min for standard mode (no change to smart mode)\
 filename: src/plugins\PositionPlugin.cpp, line 132 - 144
-* Borrow lorawan region setting "TW" for QRG 441.500 MHz for QO-100 test (setting band start to 441.100 MHz for region TW --> default channel 2 = 441.500 MHz)\
+* QO-100 test link: borrow lorawan region setting "TW" for QRG 441.500 MHz to use qith TX Patrol (setting band start to 441.100 MHz for region TW --> default channel 2 = 441.500 MHz)\
 filename: src/mesh/RadioInterface.cpp, line 26-27
 
