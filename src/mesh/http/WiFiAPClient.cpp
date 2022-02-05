@@ -23,7 +23,8 @@ DNSServer dnsServer;
 
 // NTP
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "0.pool.ntp.org");
+//NTPClient timeClient(ntpUDP, "0.pool.ntp.org");
+NTPClient timeClient(ntpUDP, "44.143.250.30");
 
 uint8_t wifiDisconnectReason = 0;
 
