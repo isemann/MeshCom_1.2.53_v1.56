@@ -18,6 +18,24 @@ Following are the characteristics of the MeshCom network:
   <li>The network is suitable for messaging, telentric data and ad-hoc communication</li>
 </ul>
 
-# Meshtastic Source-Code modified for MeshCom:
+# Meshtastic Source-Code modified for MeshCom - licensed Radio Amateurs only (!):
+* Bluetooth PIN set permanent to "000000" for MeshCom firmware, simplify operation for Radio Amateurs, no option to switch between 'licensed and non-licensed'.\
+filename: nimble/BluetoothUtil.cpp, line 242\
+    filename: src/DebugConfiguration.h, line 61
+* HOP_Limit for sending reliable messages increased to 5, allowing messages to be relayed 5 times by nodes in the mesh network.\
+filename: mesh/MeshTypes.h, line 37
+* MeshCom logo and OEVSV link added to source\
+filename: src/graphics/img/icon-meshcom.xbm\
+rename icon.xbm --> icon-meshtastic\
+filename: src/graphics/Screen.cpp, line 126
+* Disable both sleep modi (light sleep, deep sleep), to keep devices permanently on without using the swtich 'always_on' to avoid hyperacttivity of node\
+filename: src/sleep.cpp
+* Wifi Refresh reduced to 5sec\
+filename: mesh/http/WifiAPClient.cpp, line 93
+* Reconnect to MeshCom server after reboot\
+filename: src/mqtt/MQTT.cpp
+* ShortName = Suffix of Austrian Radio Amateur callsign, character 4-6, defaults to 'HAM' if callsign is shorter\
+filename: scr/plugins/AdminPlugin.cpp, line 141-152, line 19
+
 
 
