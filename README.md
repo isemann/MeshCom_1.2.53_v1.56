@@ -19,5 +19,9 @@ Following are the characteristics of the MeshCom network:
 </ul>
 
 # Meshtastic Source-Code modified for MeshCom:
+<ul>
+  <li>Bluetooth PIN wurde fix auf "000000" gesetzt, erleichtert Verbindung mit dem Smartphone\
+filename: nimble/BluetoothUtil.cpp, line 242\
+    filename: src/DebugConfiguration.h, line 61</li>
 
 
