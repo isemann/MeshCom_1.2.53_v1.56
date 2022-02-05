@@ -43,6 +43,7 @@ Region: EU433\
 filename: src/DebugConfiguration.h, line 63-66
 * Meshpacket size increase to 256\
 filename: scr/mqtt/MQTT.cpp, line 189
-
+* NTP source changed to MeshCom infrastructure\
+filename: src/mesh/http/WiFiClient.cpp, line 26-27
 
 
