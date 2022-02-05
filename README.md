@@ -36,6 +36,11 @@ filename: mesh/http/WifiAPClient.cpp, line 93
 filename: src/mqtt/MQTT.cpp
 * ShortName = Suffix of Austrian Radio Amateur callsign, character 4-6, defaults to 'HAM' if callsign is shorter\
 filename: scr/plugins/AdminPlugin.cpp, line 141-152, line 19
+* Presettings for Meshcom:\
+PSK Encryption NONE\
+Channel: Very Long Range Very Slow (BW125kHz)\
+Region: EU433\
+filename: src/DebugConfiguration.h, line 63-66
 
 
 
