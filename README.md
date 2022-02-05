@@ -19,9 +19,11 @@ Following are the characteristics of the MeshCom network:
 </ul>
 
 # Meshtastic Source-Code modified for MeshCom - licensed Radio Amateurs only (!):
-* Bluetooth PIN set permanent to "000000" for MeshCom firmware, simplify operation for Radio Amateurs, no option to switch between 'licensed and non-licensed'\
+* Bluetooth PIN set permanent to "000000" for MeshCom firmware, simplify operation for Radio Amateurs, no option to switch between 'licensed and non-licensed'.\
 filename: nimble/BluetoothUtil.cpp, line 242\
     filename: src/DebugConfiguration.h, line 61
+* HOP_Limit for sending reliable messages increased to 5, allowing messages to be relayed 5 times by nodes in the mesh network.\
+filename: mesh/MeshTypes.h, line 37
 * 
 
 
