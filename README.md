@@ -24,11 +24,12 @@ filename: nimble/BluetoothUtil.cpp, line 242\
     filename: src/DebugConfiguration.h, line 61
 * HOP_Limit for sending reliable messages increased to 5, allowing messages to be relayed 5 times by nodes in the mesh network.\
 filename: mesh/MeshTypes.h, line 37
-* MeshCom logo und ÖVSV link added to source\
+* MeshCom logo and OEVSV link added to source\
 filename: src/graphics/img/icon-meshcom.xbm\
 rename icon.xbm --> icon-meshtastic\
 filename: src/graphics/Screen.cpp, line 126
+* Disable both sleep modi (light sleep, deep sleep), to keep devices permanently on without using the swtich 'always_on' to avoid hyperacttivity of node\
+filename: src/sleep.cpp
 * 
-
 
 
