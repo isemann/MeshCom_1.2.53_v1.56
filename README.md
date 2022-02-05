@@ -41,6 +41,8 @@ PSK Encryption NONE\
 Channel: Very Long Range Very Slow (BW125kHz)\
 Region: EU433\
 filename: src/DebugConfiguration.h, line 63-66
+* Meshpacket size increase to 256\
+filename: scr/mqtt/MQTT.cpp, line 189
 
 
 
