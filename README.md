@@ -30,6 +30,7 @@ rename icon.xbm --> icon-meshtastic\
 filename: src/graphics/Screen.cpp, line 126
 * Disable both sleep modi (light sleep, deep sleep), to keep devices permanently on without using the swtich 'always_on' to avoid hyperacttivity of node\
 filename: src/sleep.cpp
-* 
+* Wifi Refresh reduced to 5sec\
+filename: mesh/http/WifiAPClient.cpp, line 93
 
 
