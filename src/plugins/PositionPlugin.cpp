@@ -129,13 +129,18 @@ int32_t PositionPlugin::runOnce()
     NodeInfo *node = nodeDB.getNode(nodeDB.getNodeNum());
 
     // radioConfig.preferences.position_broadcast_smart = true;
+     uint32_t myGPSperiode = getPref_position_broadcast_secs();
+
+     //set to 15min for MeshCom
+     myGPSperiode = 15 * 60;
 
     // We limit our GPS broadcasts to a max rate
     uint32_t now = millis();
-    if (lastGpsSend == 0 || now - lastGpsSend >= getPref_position_broadcast_secs() * 1000) {
+    if (lastGpsSend == 0 || now - lastGpsSend >= myGPSperiode * 1000) {
 
         // Only send packets if the channel is less than 40% utilized.
-        if (airTime->channelUtilizationPercent() < 40) {
+         float channelUtil = 100; // meshtastic default changed to 100% for MeshCom
+        if (airTime->channelUtilizationPercent() < channelUtil) {
 
             lastGpsSend = now;
 
