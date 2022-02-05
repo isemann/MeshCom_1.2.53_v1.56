@@ -32,5 +32,10 @@ filename: src/graphics/Screen.cpp, line 126
 filename: src/sleep.cpp
 * Wifi Refresh reduced to 5sec\
 filename: mesh/http/WifiAPClient.cpp, line 93
+* Reconnect to MeshCom server after reboot\
+filename: src/mqtt/MQTT.cpp
+* ShortName = Suffix of Austrian Radio Amateur callsign, character 4-6, defaults to 'HAM' if callsign is shorter
+filename: scr/plugins/AdminPlugin.cpp, line 141-152, line 19
+
 
 
