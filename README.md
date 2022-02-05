@@ -45,5 +45,7 @@ filename: src/DebugConfiguration.h, line 63-66
 filename: scr/mqtt/MQTT.cpp, line 189
 * NTP source changed to MeshCom infrastructure\
 filename: src/mesh/http/WiFiClient.cpp, line 26-27
+* GPS position broadcast period increased to 15min for standard mode (no change to smart mode)\
+filename: src/plugins\PositionPlugin.cpp, line 132 - 144
 
 
