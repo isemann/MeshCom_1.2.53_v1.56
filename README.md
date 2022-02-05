@@ -18,7 +18,7 @@ Following are the characteristics of the MeshCom network:
   <li>The network is suitable for messaging, telentric data and ad-hoc communication</li>
 </ul>
 
-# Meshtastic Source-Code modified for MeshCom - licensed Radio Amatuers only (!):
+# Meshtastic Source-Code modified for MeshCom - licensed Radio Amateurs only (!):
 * Bluetooth PIN set permanent to "000000" for MeshCom firmware, simplify operation for Radio Amateurs, no option to switch between 'licensed and non-licensed'\
 filename: nimble/BluetoothUtil.cpp, line 242\
     filename: src/DebugConfiguration.h, line 61\
