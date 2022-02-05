@@ -138,17 +138,11 @@ void AdminPlugin::handleSetOwner(const User &o)
     if (*o.long_name) {
         changed |= strcmp(owner.long_name, o.long_name);
         strcpy(owner.long_name, o.long_name);
-        // failsave first
-        short_call[0] = 'H';
-        short_call[1] = 'A';
-        short_call[2] = 'M';
-        try {
-            short_call[0] = owner.long_name[3];
-            short_call[1] = owner.long_name[4];
-            short_call[2] = owner.long_name[5];
-        } catch (...) {
-            DEBUG_MSG("Error creating licensed short call\n");
-        }
+
+        short_call[0] = owner.long_name[3];
+        short_call[1] = owner.long_name[4];
+        short_call[2] = owner.long_name[5];
+
         strcpy(owner.short_name, short_call);
     }
     if (*o.short_name) {
