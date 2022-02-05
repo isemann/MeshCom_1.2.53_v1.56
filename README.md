@@ -15,7 +15,7 @@ Following are the characteristics of the MeshCom network:
 
   <li>N:1 and 1:N bidirectional communications are possible.</li>
 
-  <li>The network is suitable for messaging, telentric data and emergency communication</li>
+  <li>The network is suitable for messaging, telentric data and ad-hoc communication</li>
 </ul>
 
 # Meshtastic Source-Code modified for MeshCom:
