@@ -1,9 +1,9 @@
-#include "configuration.h"
 #include "AdminPlugin.h"
 #include "Channels.h"
 #include "MeshService.h"
 #include "NodeDB.h"
 #include "Router.h"
+#include "configuration.h"
 #include "main.h"
 
 #ifdef PORTDUINO
@@ -13,19 +13,23 @@
 AdminPlugin *adminPlugin;
 
 /// A special reserved string to indicate strings we can not share with external nodes.  We will use this 'reserved' word instead.
-/// Also, to make setting work correctly, if someone tries to set a string to this reserved value we assume they don't really want a change.
+/// Also, to make setting work correctly, if someone tries to set a string to this reserved value we assume they don't really want
+/// a change.
 static const char *secretReserved = "sekrit";
+char short_call[3];
 
 /// If buf is !empty, change it to secret
-static void hideSecret(char *buf) {
-    if(*buf) {
+static void hideSecret(char *buf)
+{
+    if (*buf) {
         strcpy(buf, secretReserved);
     }
 }
 
 /// If buf is the reserved secret word, replace the buffer with currentVal
-static void writeSecret(char *buf, const char *currentVal) {
-    if(strcmp(buf, secretReserved) == 0) {
+static void writeSecret(char *buf, const char *currentVal)
+{
+    if (strcmp(buf, secretReserved) == 0) {
         strcpy(buf, currentVal);
     }
 }
@@ -53,7 +57,8 @@ void AdminPlugin::handleGetRadio(const MeshPacket &req)
         // using to the app (so that even old phone apps work with new device loads).
         r.get_radio_response.preferences.ls_secs = getPref_ls_secs();
         r.get_radio_response.preferences.phone_timeout_secs = getPref_phone_timeout_secs();
-        // hideSecret(r.get_radio_response.preferences.wifi_ssid); // hmm - leave public for now, because only minimally private and useful for users to know current provisioning)
+        // hideSecret(r.get_radio_response.preferences.wifi_ssid); // hmm - leave public for now, because only minimally private
+        // and useful for users to know current provisioning)
         hideSecret(r.get_radio_response.preferences.wifi_password);
 
         r.which_variant = AdminMessage_get_radio_response_tag;
@@ -133,6 +138,18 @@ void AdminPlugin::handleSetOwner(const User &o)
     if (*o.long_name) {
         changed |= strcmp(owner.long_name, o.long_name);
         strcpy(owner.long_name, o.long_name);
+        // failsave first
+        short_call[0] = 'H';
+        short_call[1] = 'A';
+        short_call[2] = 'M';
+        try {
+            short_call[0] = owner.long_name[3];
+            short_call[1] = owner.long_name[4];
+            short_call[2] = owner.long_name[5];
+        } catch (...) {
+            DEBUG_MSG("Error creating licensed short call\n");
+        }
+        strcpy(owner.short_name, short_call);
     }
     if (*o.short_name) {
         changed |= strcmp(owner.short_name, o.short_name);
