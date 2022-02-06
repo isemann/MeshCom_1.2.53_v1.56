@@ -136,10 +136,11 @@ int32_t PositionPlugin::runOnce()
 
     // We limit our GPS broadcasts to a max rate
     uint32_t now = millis();
+    float channelUtil = 100; // meshtastic default changed to 100% for MeshCom
     if (lastGpsSend == 0 || now - lastGpsSend >= myGPSperiode * 1000) {
 
         // Only send packets if the channel is less than 40% utilized.
-         float channelUtil = 100; // meshtastic default changed to 100% for MeshCom
+         
         if (airTime->channelUtilizationPercent() < channelUtil) {
 
             lastGpsSend = now;
@@ -162,13 +163,13 @@ int32_t PositionPlugin::runOnce()
     } else if (radioConfig.preferences.position_broadcast_smart == true) {
 
         // Only send packets if the channel is less than 40% utilized.
-        if (airTime->channelUtilizationPercent() < 40) {
+        if (airTime->channelUtilizationPercent() < channelUtil) {
 
             NodeInfo *node2 = service.refreshMyNodeInfo(); // should guarantee there is now a position
 
             if (node2->has_position && (node2->position.latitude_i != 0 || node2->position.longitude_i != 0)) {
                 // The minimum distance to travel before we are able to send a new position packet.
-                const uint32_t distanceTravelMinimum = 30;
+                const uint32_t distanceTravelMinimum = 200;
 
                 // The minimum time that would pass before we are able to send a new position packet.
                 const uint32_t timeTravelMinimum = 30;

@@ -46,7 +46,12 @@ filename: scr/mqtt/MQTT.cpp, line 189
 * NTP source changed to MeshCom infrastructure\
 filename: src/mesh/http/WiFiClient.cpp, line 26-27
 * GPS position broadcast period increased to 15min for standard mode (no change to smart mode)\
-filename: src/plugins\PositionPlugin.cpp, line 132 - 144
+filename: src/plugins\PositionPlugin.cpp, line 132-144
 * QO-100 test link: borrow lorawan region setting "TW" for QRG 441.500 MHz to use qith TX Patrol (setting band start to 441.100 MHz for region TW --> default channel 2 = 441.500 MHz)\
 filename: src/mesh/RadioInterface.cpp, line 26-27
+* Mofification of position info parameters, send till channel utilization 100%
+filename: src/plugins/PostionPlugin.cpp, line 139-176
+* Clear packetpool structure to avoid overun and reconnect of GW to MQTT server
+filename: src/mqtt/MQTT.cpp, line 48-50
+
 

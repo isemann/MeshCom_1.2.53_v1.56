@@ -145,7 +145,7 @@ void AdminPlugin::handleSetOwner(const User &o)
         try {
             for (int i = 0; i < 3; i++)
             {
-                if (isalpha(owner.long_name[i]))
+                if (isalpha(owner.long_name[i+3]))
                 {
                     short_call[i] = owner.long_name[i+3];
                 } else

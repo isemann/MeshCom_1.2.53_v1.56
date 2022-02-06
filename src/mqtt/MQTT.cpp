@@ -45,6 +45,9 @@ void MQTT::onPublish(char *topic, byte *payload, unsigned int length)
         free(e.channel_id);
         free(e.gateway_id);
         free(e.packet);
+        delete[]e.channel_id;
+        delete[]e.gateway_id;
+        delete[]e.packet;
     }
 }
 
@@ -66,10 +69,10 @@ MQTT::MQTT() : concurrency::OSThread("mqtt"), pubSub(mqttClient)
 void MQTT::reconnect()
 {
     if (wantsLink()) {
-        const char *serverAddr = "mqtt.meshtastic.org"; // default hostname
+        const char *serverAddr = "44.143.8.143"; // default hostname
         int serverPort = 1883;                          // default server port
-        const char *mqttUsername = "meshdev";
-        const char *mqttPassword = "large4cats";
+        const char *mqttUsername = "";
+        const char *mqttPassword = "";
 
         if (*radioConfig.preferences.mqtt_server) {
             serverAddr = radioConfig.preferences.mqtt_server; // Override the default
@@ -164,7 +167,7 @@ int32_t MQTT::runOnce()
         // we are connected to server, check often for new requests on the TCP port
         if (!wantConnection) {
             DEBUG_MSG("MQTT link not needed, dropping\n");
-            //pubSub.disconnect();
+            pubSub.disconnect();
         }
 
         powerFSM.trigger(EVENT_CONTACT_FROM_PHONE); // Suppress entering light sleep (because that would turn off bluetooth)
