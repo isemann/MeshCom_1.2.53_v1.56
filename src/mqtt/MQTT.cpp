@@ -167,7 +167,7 @@ int32_t MQTT::runOnce()
         // we are connected to server, check often for new requests on the TCP port
         if (!wantConnection) {
             DEBUG_MSG("MQTT link not needed, dropping\n");
-            pubSub.disconnect();
+            //pubSub.disconnect();
         }
 
         powerFSM.trigger(EVENT_CONTACT_FROM_PHONE); // Suppress entering light sleep (because that would turn off bluetooth)
