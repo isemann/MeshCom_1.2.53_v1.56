@@ -45,9 +45,6 @@ void MQTT::onPublish(char *topic, byte *payload, unsigned int length)
         free(e.channel_id);
         free(e.gateway_id);
         free(e.packet);
-        delete[]e.channel_id;
-        delete[]e.gateway_id;
-        delete[]e.packet;
     }
 }
 
