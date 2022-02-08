@@ -66,10 +66,10 @@ MQTT::MQTT() : concurrency::OSThread("mqtt"), pubSub(mqttClient)
 void MQTT::reconnect()
 {
     if (wantsLink()) {
-        const char *serverAddr = "44.143.8.143"; // default hostname
+        const char *serverAddr = "mqtt.meshtastic.org"; // default hostname
         int serverPort = 1883;                          // default server port
-        const char *mqttUsername = "";
-        const char *mqttPassword = "";
+        const char *mqttUsername = "meshdev";
+        const char *mqttPassword = "large4cats";
 
         if (*radioConfig.preferences.mqtt_server) {
             serverAddr = radioConfig.preferences.mqtt_server; // Override the default
@@ -94,6 +94,14 @@ void MQTT::reconnect()
             serverAddr = server.c_str();
         }
         pubSub.setServer(serverAddr, serverPort);
+
+        // keep socket and keep adapted, 15s is default, might be required via HAMNET
+        if (radioConfig.preferences.environmental_measurement_plugin_sensor_pin > 0) {
+            pubSub.setKeepAlive(radioConfig.preferences.environmental_measurement_plugin_sensor_pin);
+        }
+        if (radioConfig.preferences.environmental_measurement_plugin_read_error_count_threshold > 0) {
+            pubSub.setSocketTimeout(radioConfig.preferences.environmental_measurement_plugin_read_error_count_threshold);
+        }
 
         DEBUG_MSG("Connecting to MQTT server %s, port: %d, username: %s, password: %s\n", serverAddr, serverPort, mqttUsername, mqttPassword);
         auto myStatus = (statusTopic + owner.id);

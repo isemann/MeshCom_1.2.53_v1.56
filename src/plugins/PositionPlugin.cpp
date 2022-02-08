@@ -130,13 +130,13 @@ int32_t PositionPlugin::runOnce()
 
     // radioConfig.preferences.position_broadcast_smart = true;
      uint32_t myGPSperiode = getPref_position_broadcast_secs();
-
-     //set to 15min for MeshCom
-     myGPSperiode = 15 * 60;
+    //set to 15min for MeshCom
+    myGPSperiode = 900; //900s = 15min
 
     // We limit our GPS broadcasts to a max rate
     uint32_t now = millis();
     float channelUtil = 100; // meshtastic default changed to 100% for MeshCom
+
     if (lastGpsSend == 0 || now - lastGpsSend >= myGPSperiode * 1000) {
 
         // Only send packets if the channel is less than 40% utilized.
@@ -157,7 +157,7 @@ int32_t PositionPlugin::runOnce()
             sendOurPosition(NODENUM_BROADCAST, requestReplies);
 
         } else {
-            DEBUG_MSG("Channel utilization is >50 percent. Skipping this opportunity to send.\n");
+            DEBUG_MSG("Channel utilization is over threshold. Skipping this opportunity to send.\n");
         }
 
     } else if (radioConfig.preferences.position_broadcast_smart == true) {
@@ -169,10 +169,10 @@ int32_t PositionPlugin::runOnce()
 
             if (node2->has_position && (node2->position.latitude_i != 0 || node2->position.longitude_i != 0)) {
                 // The minimum distance to travel before we are able to send a new position packet.
-                const uint32_t distanceTravelMinimum = 200;
+                const uint32_t distanceTravelMinimum = 200; //200m distance required for travel trigger
 
                 // The minimum time that would pass before we are able to send a new position packet.
-                const uint32_t timeTravelMinimum = 30;
+                const uint32_t timeTravelMinimum = 600; //600s = 5 min, do not set positions under this value
 
                 // Determine the distance in meters between two points on the globe
                 float distance = GeoCoord::latLongToMeter(lastGpsLatitude * 1e-7, lastGpsLongitude * 1e-7,
@@ -195,7 +195,7 @@ int32_t PositionPlugin::runOnce()
 
                     DEBUG_MSG("Sending smart pos@%x:6 to mesh (wantReplies=%d, dt=%d, tt=%d)\n", node2->position.pos_timestamp,
                               requestReplies, distanceTravel, timeTravel);
-                    sendOurPosition(NODENUM_BROADCAST, requestReplies);
+                    sendOurPosition(NODENUM_BROADCAST, false); //no need to get positions from others = unproto pos update like aprs
 
                     /* Update lastGpsSend to now. This means if the device is stationary, then
                        getPref_position_broadcast_secs will still apply.
@@ -204,7 +204,7 @@ int32_t PositionPlugin::runOnce()
                 }
             }
         } else {
-            DEBUG_MSG("Channel utilization is >40 percent. Skipping this opportunity to send.\n");
+            DEBUG_MSG("Channel utilization is over threshold. Skipping this opportunity to send.\n");
         }
     }
 

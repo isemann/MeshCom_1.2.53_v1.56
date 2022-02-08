@@ -23,8 +23,7 @@ DNSServer dnsServer;
 
 // NTP
 WiFiUDP ntpUDP;
-//NTPClient timeClient(ntpUDP, "0.pool.ntp.org");
-NTPClient timeClient(ntpUDP, "44.143.250.30");
+NTPClient timeClient(ntpUDP, "0.pool.ntp.org");
 
 uint8_t wifiDisconnectReason = 0;
 
@@ -91,7 +90,7 @@ static int32_t reconnectWiFi()
         }
     }
 
-    return 5 * 1000; // every 30 seconds
+    return 1000; // every 1 seconds reconnect, being sticky as possible
 }
 
 static Periodic *wifiReconnect;
