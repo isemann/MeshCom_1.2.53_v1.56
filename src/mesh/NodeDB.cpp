@@ -573,12 +573,14 @@ NodeInfo *NodeDB::getOrCreateNode(NodeNum n)
 
     if (!info) {
         // add the node
-        assert(*numNodes < MAX_NUM_NODES);
-        info = &nodes[(*numNodes)++];
+        if(*numNodes < MAX_NUM_NODES)  {
+            //assert(*numNodes < MAX_NUM_NODES); //RKE causes reboot if we hit the node limit
+            info = &nodes[(*numNodes)++];
 
-        // everything is missing except the nodenum
-        memset(info, 0, sizeof(*info));
-        info->num = n;
+            // everything is missing except the nodenum
+            memset(info, 0, sizeof(*info));
+            info->num = n;
+        }
     }
 
     return info;

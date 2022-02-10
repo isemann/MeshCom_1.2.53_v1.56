@@ -35,7 +35,7 @@ typedef struct _DeviceState {
     bool has_owner;
     User owner;
     pb_size_t node_db_count;
-    NodeInfo node_db[32];
+    NodeInfo node_db[200]; // RKE temp fix, have been 32
     pb_size_t receive_queue_count;
     MeshPacket receive_queue[1];
     bool has_rx_text_message;
