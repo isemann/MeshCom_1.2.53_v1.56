@@ -23,9 +23,9 @@ const RegionInfo regions[] = {
     RDEF(ANZ, 916.0f, 0.5f, 20, 0),    // AU/NZ channel settings 915-928MHz
     RDEF(KR, 921.9f, 0.2f, 8, 0),      // KR channel settings (KR920-923) Start from TTN download channel
                                        // freq. (921.9f is for download, others are for uplink)
-    //RDEF(TW, 923.0f, 0.2f, 10, 0),     // TW channel settings (AS2 bandplan 923-925MHz)
-    RDEF(TW, 441.100f, 0.2f, 8, 0),
+    RDEF(TW, 923.0f, 0.2f, 10, 0),     // TW channel settings (AS2 bandplan 923-925MHz)
     RDEF(RU, 868.9f, 0.2f, 2, 20),     // See notes below
+    RDEF(QO100, 435.500f, 3.0f, 8, 0), // MeshCom via QO-100
     RDEF(Unset, 903.08f, 2.16f, 13, 0) // Assume US freqs if unset, Must be last
 };
 
