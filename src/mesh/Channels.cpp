@@ -87,7 +87,7 @@ void Channels::initDefaultChannel(ChannelIndex chIndex)
     // radioConfig.modem_config = RadioConfig_ModemConfig_Bw125Cr45Sf128;  // medium range and fast
     // channelSettings.modem_config = ChannelSettings_ModemConfig_Bw500Cr45Sf128;  // short range and fast, but wide
     // bandwidth so incompatible radios can talk together
-    channelSettings.modem_config = ChannelSettings_ModemConfig_Bw125Cr48Sf4096; // slow and long range
+    channelSettings.modem_config = ChannelSettings_ModemConfig_Bw250Cr46Sf2048; // slow and long range
 
     channelSettings.tx_power = 0; // default
     uint8_t defaultpskIndex = 1;

@@ -63,4 +63,4 @@
 //Meshcom Presettings
 #define myRegion EU433
 #define pskIndex none
-#define ChannelSettings_Modem_Config 3
+#define ChannelSettings_Modem_Config 4
