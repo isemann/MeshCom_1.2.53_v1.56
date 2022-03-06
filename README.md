@@ -53,5 +53,10 @@ filename: src/mesh/RadioInterface.cpp, line 26-27
 filename: src/plugins/PostionPlugin.cpp, line 139-176
 * Clear packetpool structure to avoid overun and reconnect of GW to MQTT server
 filename: src/mqtt/MQTT.cpp, line 48-50
+* New frequency for MediumSlow channel --> 433.175 MHz
+filename: scr/mesh/RadioInterface.cpp, line 336
+* Definition of new Region "QO100" with special QRGs for Satellite mode
+filename: scr/mesh/RadioInterface.cpp, line 28
+filename: src/mesh/generated/radioconfig.pb.h, line 24
 
 
