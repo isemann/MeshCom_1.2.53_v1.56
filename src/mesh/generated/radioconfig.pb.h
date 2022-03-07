@@ -20,8 +20,7 @@ typedef enum _RegionCode {
     RegionCode_ANZ = 6,
     RegionCode_KR = 7,
     RegionCode_TW = 8,
-    RegionCode_RU = 9,
-    RegionCode_QO100 = 10
+    RegionCode_RU = 9
 } RegionCode;
 
 typedef enum _ChargeCurrent {
