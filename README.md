@@ -55,7 +55,7 @@ filename: src/plugins/PostionPlugin.cpp, line 139-176
 filename: src/mqtt/MQTT.cpp, line 48-50
 * New frequency for MediumSlow channel --> 433.175 MHz
 filename: scr/mesh/RadioInterface.cpp, line 336
-* Definition of der Region "TW" with special QRGs for Satellite mode
+* Definition of Region "TW" with special QRGs for Satellite mode
 filename: scr/mesh/RadioInterface.cpp, line 28
 
 
